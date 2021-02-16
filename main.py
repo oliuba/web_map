@@ -62,7 +62,7 @@ def place_to_coordinates(place: str) -> tuple:
     try:
         location = geolocator.geocode(place)
         coordinates = location.latitude, location.longitude
-    except (GeocoderUnavailable, AttributeError):
+    except (GeocoderUnavailable, AttributeError, ValueError):
         coordinates = np.nan
     return coordinates
 
